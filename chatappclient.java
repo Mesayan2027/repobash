@@ -18,7 +18,7 @@ public class chatappclient {
     static File r;
     static File NameIDRead;
     public static void nameTaker() throws IOException {
-        r=new File("D://cha");
+        r=new File("D://chat");
         if(r.isDirectory()){
             NameIDRead=new File("D://chat//NameId.txt");                                                        //TODO:in case of multiple user change destination here
             Scanner sc=new Scanner(NameIDRead);
@@ -26,7 +26,7 @@ public class chatappclient {
                 names=sc.nextLine();
             }// username = Info
             try {
-                s = new Socket("localhost", 9090);                                                           //TODO:in case of changing host
+                s = new Socket("192.168.0.104", 9090);                                                           //TODO:in case of changing host
                 din = new DataInputStream(s.getInputStream());
                 dou = new DataOutputStream(s.getOutputStream());
                 dou.writeUTF(names);
@@ -92,7 +92,7 @@ public class chatappclient {
                     if (!j.getText().equals("")) {
                         if (!hashTag && !Space) {
                             try {
-                                s = new Socket("localhost", 9090);                                            //TODO:in case of changing host
+                                s = new Socket("192.168.0.104", 9090);                                            //TODO:in case of changing host
                                 din = new DataInputStream(s.getInputStream());
                                 dou = new DataOutputStream(s.getOutputStream());
                                 dou.writeUTF(names);
